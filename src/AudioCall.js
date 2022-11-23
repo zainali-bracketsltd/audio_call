@@ -3,13 +3,12 @@ import { Device } from '@twilio/voice-sdk'
 
 import axios from 'axios'
 
+let device
 export default function AudioCall () {
   // useEffect(async () => {
 
   //   console.log('*** token ***', 'token')
   // }, [])
-
-  const [device, setDevice] = useState()
 
   useEffect(() => {
     ;(async () => {
@@ -17,7 +16,7 @@ export default function AudioCall () {
 
       console.log('*** twilio access token ***', res.data.token)
 
-      const device = new Device(res.data.token, {
+      device = new Device(res.data.token, {
         // Set Opus as our preferred codec. Opus generally performs better, requiring less bandwidth and
         // providing better audio quality in restrained network conditions. Opus will be default in 2.0.
         codecPreferences: ['pcmu', 'opus'],
