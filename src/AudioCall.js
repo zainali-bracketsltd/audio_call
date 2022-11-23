@@ -57,8 +57,6 @@ export default function AudioCall () {
       device.on('incoming', function (conn) {
         console.log('Twilio.Device call received')
       })
-
-      setDevice(device)
     })()
   }, [])
 
